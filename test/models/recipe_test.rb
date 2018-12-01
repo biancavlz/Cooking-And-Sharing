@@ -2,7 +2,13 @@ require 'test_helper'
 
 class RecipeTest < ActiveSupport::TestCase
   def setup
-    @recipe = Recipe.new(name: "Tacos", description: "delicious tacos")
+    @user = User.create!(name: "John", email: "user@example.com")
+    @recipe = @user.recipes.build(name: "Tacos", description: "delicious tacos")
+  end
+
+  test "without user should be invalid" do
+    @recipe.user_id = nil
+    assert_not @recipe.valid?
   end
 
   test "should be valid" do
