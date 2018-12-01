@@ -8,4 +8,6 @@ class User < ApplicationRecord
                     length: { maximum: 245 }, 
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  has_many :recipes                    
 end
