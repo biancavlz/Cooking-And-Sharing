@@ -3,9 +3,25 @@
 <% @recipes.each do |recipe| %>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><%= link_to recipe.name, recipe_path(recipe) %></h5>
-      <p class="card-text"><%= truncate(recipe.description, length: 150) %></p>
-      <p class="card-text"><small class="text-muted">Created <%= time_ago_in_words(recipe.created_at) %> ago</small></p>
+      <div class="row">
+        
+        <div class="col-md-2">
+          <%= gravatar_for(recipe.user, size: 120) %>
+        </div>
+
+        <div class="col-md-10">
+          <h5 class="card-title"><%= link_to recipe.name, recipe_path(recipe) %></h5>
+          <p class="card-text"><%= truncate(recipe.description, length: 150) %></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <em>
+                Created <%= time_ago_in_words(recipe.created_at) %> ago
+              </em>
+            </small>
+          </p>
+        </div>
+
+      </div>
     </div>
   </div>
 <% end %>

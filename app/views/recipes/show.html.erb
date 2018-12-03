@@ -2,7 +2,22 @@
 
 <div class="card">
   <div class="card-body">
-    <p class="card-text"><%= @recipe.description %></p>
-    <p class="card-text"><small class="text-muted">Created by <%= @recipe.user.name %> <%= time_ago_in_words(@recipe.created_at) %> ago</small></p>
+    <div class="row">
+      <div class="col-md-2">
+        <%= link_to gravatar_for(@recipe.user), recipes_path%>
+      </div>
+      <div class="col-md-10">
+        <p class="card-text">
+          <%= simple_format(@recipe.description) %>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            <em> 
+              Created by <%= @recipe.user.name %> <%= time_ago_in_words(@recipe.created_at) %> ago 
+            </em>
+          </small>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
