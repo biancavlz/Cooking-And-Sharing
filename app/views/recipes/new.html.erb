@@ -1,4 +1,20 @@
 <%= render 'shared/page_title', title: 'create a new recipe' %>
+
+<% if @recipe.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">
+      <%= pluralize(@recipe.errors.count, "error") %>
+      prohidited this <%= @recipe.class %> from being saved:
+    </h4>
+    
+    <ul>
+      <% @recipe.errors.full_messages.each do |error_msg| %>
+        <li><%= error_msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     
