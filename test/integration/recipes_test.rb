@@ -29,6 +29,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
     assert_match @recipe1.description, response.body
     assert_match @user.name, response.body
     assert_select "a[href=?]", edit_recipe_path(@recipe1), text: "Edit"
+    assert_select "a[href=?]", recipe_path(@recipe1), text: "Delete"
   end
 
   test "creates new valid recipe" do
@@ -71,10 +72,20 @@ class RecipesTest < ActionDispatch::IntegrationTest
     updated_description = "updated description"
     patch recipe_path(@recipe1), params: { recipe: { name: updated_name, description: updated_description } }
     assert_redirected_to @recipe1
-    #follow_redirect!
     assert_not flash.empty?
     @recipe1.reload
     assert_match updated_name, @recipe1.name
     assert_match updated_description, @recipe1.description
+  end
+
+  test "successfully delete a recipe" do
+    get recipe_path(@recipe1)
+    assert_template 'recipes/show'
+    assert_select "a[href=?]", recipe_path(@recipe1), text: "Delete"
+    assert_difference "Recipe.count", -1 do
+      delete recipe_path(@recipe1)
+    end
+    assert_redirected_to recipes_path
+    assert_not flash.empty?
   end
 end
