@@ -21,9 +21,27 @@
 }
 
 //Jumbotrom
-
 .jumbotron {
   margin-top: 32px;
   text-align: center;
   background-color: #a8d4c8;
+}
+
+//links
+.color-link a {
+  color: #289486
+}
+
+//Button
+.btn-color {
+  background-color: #289486;
+  border-color: #289486;
+}
+
+//recipe actions
+.recipe-actions {
+  .btn {
+    color: #289486;
+    border-color: #289486;
+  }
 }
