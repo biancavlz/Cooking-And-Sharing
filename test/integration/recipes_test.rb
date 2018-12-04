@@ -29,4 +29,12 @@ class RecipesTest < ActionDispatch::IntegrationTest
     assert_match @recipe1.description, response.body
     assert_match @user.name, response.body
   end
+
+  test "creates new valid recipe" do
+    get new_recipe_path
+  end
+
+  test "reject invalid recipe submission" do
+    get new_recipe_path
+  end
 end
