@@ -1,0 +1,48 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      
+      <%= form_for(@user, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter a name", autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control",
+            placeholder: "Enter an email e.g: john@example.com"
+          %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control",
+            placeholder: "Enter a password"
+          %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm password" %>
+          <%= f.password_field :password_confirmation, class: "form-control",
+            placeholder: "Confirm the password"
+          %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <%= f.submit(@user.new_record? ? "Submit" : "Update" , class: "btn btn-secondary btn-color") %>
+            </div>
+          </div>
+          
+          <div class="col-sm-10 text-right color-link">
+            <div>
+              <%= link_to "Cancel", recipes_path %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
