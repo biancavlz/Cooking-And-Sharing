@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def show 
+  def show
+    @user = User.find(params[:id])
   end
 
   private
