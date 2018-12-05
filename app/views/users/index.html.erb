@@ -1,0 +1,22 @@
+<%= render "shared/page_title", title: "All Users" %>
+
+<% @users.each do |user| %>
+  <div class="card col-md-8 offset-md-2">
+    <div class="card-body">
+      <div class="row">
+        
+        <div class="col-md-4">
+          <%= link_to gravatar_for(user, size: 120), user_path(user) %>
+        </div>
+
+        <div class="col-md-8">
+          <h2 class="card-title color-link"><%= link_to user.name, user_path(user) %></h2>
+
+          <h4 class="card-title pricing-card-title">
+            <small class="text-muted"><%= pluralize(user.recipes.count, "recipe") if user.recipes %></small>      
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
