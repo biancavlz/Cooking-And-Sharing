@@ -15,6 +15,8 @@
           <h4 class="card-title pricing-card-title">
             <small class="text-muted"><%= pluralize(user.recipes.count, "recipe") if user.recipes %></small>      
           </h4>
+
+          <%= link_to "Delete user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user and all assiciated recipes?" } %>
         </div>
       </div>
     </div>
