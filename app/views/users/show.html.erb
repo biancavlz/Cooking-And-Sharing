@@ -11,7 +11,7 @@
     <h4 class="card-title"><%= @user.name %>'s recipes</h4>
    
     
-    <% @user.recipes.each do |recipe| %>
+    <% @user_recipes.each do |recipe| %>
      <hr/>
       <div class="col-md-10">
         <h5 class="card-title color-link"><%= link_to recipe.name, recipe_path(recipe) %></h5>
@@ -24,9 +24,8 @@
           </small>
         </p>
       </div>
-
-    
     <% end %>
-  
   </div>
 </div>
+
+<%= render "shared/pagination", obj: @user_recipes %>
