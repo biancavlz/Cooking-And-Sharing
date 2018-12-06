@@ -1,0 +1,31 @@
+<div class="card col-md-8 offset-md-2">
+  <h1 class="card-header bg-transparent text-center">
+      <%= @user.name %> profile
+  </h1>
+
+  <div class="card-body">
+    <div class="col-md-12 text-center">
+      <%= gravatar_for(@user, size: 150) %>
+    </div>
+
+    <h4 class="card-title"><%= @user.name %>'s recipes</h4>
+   
+    
+    <% @user_recipes.each do |recipe| %>
+     <hr/>
+      <div class="col-md-10">
+        <h5 class="card-title color-link"><%= link_to recipe.name, recipe_path(recipe) %></h5>
+        <p class="card-text"><%= truncate(recipe.description, length: 150) %></p>
+        <p class="card-text">
+          <small class="text-muted">
+            <em>
+              Created <%= time_ago_in_words(recipe.created_at) %> ago
+            </em>
+          </small>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/pagination", obj: @user_recipes %>
