@@ -45,3 +45,18 @@
     border-color: #289486;
   }
 }
+
+//pagination
+
+.pagination {
+  margin-top: 10px;
+}
+
+.page-item.active .page-link {
+  background-color: #289486;
+  border-color: #289486;
+}
+
+.page-link:hover {
+  color: black;
+}
