@@ -20,13 +20,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "See all recipes", recipes_path, class: "dropdown-item" %>
           <%= link_to "Create a new recipe", new_recipe_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to "Sign up", signup_path, class: "dropdown-item" %>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
