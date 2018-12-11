@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user = User.first #this will be removed
+    @recipe.user = current_user
 
     if @recipe.save
       flash[:success] = "Recipe was created successfully!"
