@@ -7,23 +7,25 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= "Hi #{current_user.name.capitalize}" %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "See all recipes", recipes_path, class: "dropdown-item" %>
+            <%= link_to "Create a recipe", new_recipe_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to "Users", users_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Recipes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "See all recipes", recipes_path, class: "dropdown-item" %>
-          <%= link_to "Create a new recipe", new_recipe_path, class: "dropdown-item" %>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item">
+        <%= link_to "Recipes", recipes_path, class: "nav-link" %>
       </li>
     </ul>
 
@@ -33,8 +35,11 @@
     </form>
     
     <div>
-      <%= link_to "Log in", login_path, class: "btn btn-outline-light" %>
-      <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-outline-light" %>
+      <% unless logged_in? %>
+        <%= link_to "Log in", login_path, class: "btn btn-outline-light" %>
+      <% else %>
+        <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-outline-light" %>
+      <% end %>
     </div>
   </div>
 </nav>
