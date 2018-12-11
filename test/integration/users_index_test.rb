@@ -29,6 +29,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
 
   test "should  delete user" do
+    sign_up_as(@user1, "password")
     get users_path
     assert_template "users/index"
     assert_difference "User.count", -1 do
