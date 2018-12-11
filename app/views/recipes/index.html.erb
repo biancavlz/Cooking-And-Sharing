@@ -5,11 +5,11 @@
     <div class="card-body">
       <div class="row">
         
-        <div class="col-md-2">
+        <div class="col-md-3 text-center">
           <%= gravatar_for(recipe.user, size: 120) %>
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-9">
           <h5 class="card-title color-link"><%= link_to recipe.name, recipe_path(recipe) %></h5>
           <p class="card-text"><%= truncate(recipe.description, length: 150) %></p>
           <p class="card-text">
@@ -20,7 +20,17 @@
             </small>
           </p>
         </div>
+      </div>
 
+      <div class="row offset-md-3">
+        <% if logged_in? && current_user == recipe.user %>
+          <div class="col-md-4 recipe-actions">
+            <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-outline-secondary" %>
+            <%= link_to "Delete", recipe_path(recipe),method: :delete, 
+              data: { Confirm: "Are you sure you want to delete this recipe?" },
+              class: "btn btn-outline-secondary" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
