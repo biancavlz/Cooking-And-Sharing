@@ -27,6 +27,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "should have recipe SHOW" do
+    sign_up_as(@user, "password")
     get recipe_path(@recipe1)
     assert_template 'recipes/show'
     assert_match @recipe1.name, response.body
@@ -38,6 +39,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "creates new valid recipe" do
+    sign_up_as(@user, "password")
     get new_recipe_path
     assert_template "recipes/new"
     name_of_recipe = "Burritos"
@@ -52,6 +54,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "reject invalid recipe submission" do
+    sign_up_as(@user, "password")
     get new_recipe_path
     assert_template "recipes/new"
     assert_no_difference "Recipe.count" do
@@ -63,6 +66,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "reject invalid recipe update" do
+    sign_up_as(@user, "password")
     get edit_recipe_path(@recipe1)
     assert_template "recipes/edit"
     patch recipe_path(@recipe1), params: { recipe: { name: " ", description: "new description" } }
@@ -71,6 +75,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "successfully added a recipe" do
+    sign_up_as(@user, "password")
     get edit_recipe_path(@recipe1)
     assert_template "recipes/edit"
     updated_name = "Updated name"
@@ -84,6 +89,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
   end
 
   test "successfully delete a recipe" do
+    sign_up_as(@user, "password")
     get recipe_path(@recipe1)
     assert_template 'recipes/show'
     assert_select "a[href=?]", recipe_path(@recipe1), text: "Delete"
