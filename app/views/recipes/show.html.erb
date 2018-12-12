@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="row offset-md-2">
-      <% if logged_in? && current_user == @recipe.user %>
+      <% if logged_in? && (current_user == @recipe.user || current_user.admin?) %>
         <div class="col-md-4 recipe-actions">
           <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-outline-secondary" %>
           <%= link_to "Delete", recipe_path(@recipe),method: :delete, 
@@ -28,9 +28,6 @@
             class: "btn btn-outline-secondary" %>
         </div>
       <% end %>
-      <div class="col-md-4 color-link">
-        <%= link_to "Back to recipes", recipes_path %>
-      </div>
     </div>
   </div>
 </div>

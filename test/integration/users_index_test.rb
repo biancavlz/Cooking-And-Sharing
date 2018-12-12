@@ -13,6 +13,12 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
                           password: "password", 
                           password_confirmation: "password"
                         )
+    @user3_admin = User.create!(name: "Smith1", 
+                          email: "smith1@example.com",
+                          password: "password", 
+                          password_confirmation: "password",
+                          admin: true
+                        )
   end
 
   test "should get users INDEX" do
@@ -29,7 +35,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
 
   test "should  delete user" do
-    sign_up_as(@user1, "password")
+    sign_up_as(@user3_admin, "password") 
     get users_path
     assert_template "users/index"
     assert_difference "User.count", -1 do

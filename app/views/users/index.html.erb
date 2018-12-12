@@ -15,9 +15,12 @@
           <h4 class="card-title">
             <small class="text-muted"><%= pluralize(user.recipes.count, "recipe") if user.recipes %></small>      
           </h4>
-          <div class="color-link">
-            <%= link_to "Delete user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user and all assiciated recipes?" } %>
-          </div>
+
+          <% if logged_in? && current_user.admin? && !user.admin? %>
+            <div class="color-link">
+              <%= link_to "Delete user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user and all assiciated recipes?" } %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
