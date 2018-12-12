@@ -19,7 +19,6 @@
         </p>
       </div>
     </div>
-
     <div class="row offset-md-2">
       <% if logged_in? && current_user == @recipe.user %>
         <div class="col-md-4 recipe-actions">
@@ -33,5 +32,11 @@
         <%= link_to "Back to recipes", recipes_path %>
       </div>
     </div>
+  </div>
+</div>
+
+<div>
+  <div class="col-md-12 back-link color-link text-center">
+    <%= link_to "Back to recipes", recipes_path %>
   </div>
 </div>

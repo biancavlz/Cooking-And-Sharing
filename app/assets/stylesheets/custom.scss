@@ -38,14 +38,6 @@
   border-color: #289486;
 }
 
-//recipe actions
-.recipe-actions {
-  .btn {
-    color: #289486;
-    border-color: #289486;
-  }
-}
-
 //pagination
 .pagination {
   margin-top: 10px;
@@ -67,4 +59,32 @@
 
 .card-title {
   margin-top: 12px;
+  margin-bottom: 15px;
+}
+
+// recipes
+.recipe-actions {
+  margin-top: 20px;
+  .btn {
+    color: #289486;
+    border-color: #289486;
+  }
+}
+
+.buttons {
+  margin-bottom: 10px;
+}
+
+.back-link {
+  margin-bottom: 10px;
+}
+
+.recipe-header {
+  border-bottom: 0px;
+  margin-top: 15px;
+}
+
+// avatar
+.rounded-circle {
+  margin-bottom: 15px;
 }
