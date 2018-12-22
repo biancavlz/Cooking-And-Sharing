@@ -4,7 +4,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-2 text-center">
-        <%= link_to gravatar_for(@recipe.user), recipes_path%>
+        <%= link_to gravatar_for(@recipe.user), user_path(@recipe.user) %>
       </div>
       <div class="col-md-10">
         <p class="card-text">
@@ -13,7 +13,8 @@
         <p class="card-text">
           <small class="text-muted">
             <em> 
-              Created by <%= @recipe.user.name %> <%= time_ago_in_words(@recipe.created_at) %> ago 
+              Created <%= time_ago_in_words(@recipe.created_at) %> ago 
+                by <b><%= @recipe.user.name %></b>
             </em>
           </small>
         </p>
