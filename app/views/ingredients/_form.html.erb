@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @ingredient %>
+
+<div class="row">
+  <div class="col-md-12">
+    
+    <%= form_for(@ingredient, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Type ingredient name", autofocus: true %>
+      </div>
+      
+      <div class="row">
+        <div class="form-group col">
+          <%= f.submit(@ingredient.new_record? ? "Add Ingrediente" : "Update Ingredient", class: "btn btn-secondary btn-color") %>
+        </div>
+        
+        <div class="col order-last color-link text-right">
+          <%= link_to "Cancel", ingredients_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
