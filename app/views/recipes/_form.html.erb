@@ -16,6 +16,13 @@
           rows: 15 
         %>
       </div>
+
+      <div class="form-check">
+        <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cb| %>
+          <%= cb.label(class: "checkbox-inline input_checkbox") { cb.check_box(class: "checkbox") + cb.text } %>
+        <% end %>
+      </div>
+
       <div class="row">
         <div class="form-group col order-first">
           <%= f.submit "Submit", class: "btn btn-secondary btn-color" %>
