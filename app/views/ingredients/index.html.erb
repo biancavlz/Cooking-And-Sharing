@@ -1,0 +1,26 @@
+<%= render "shared/page_title", title: "Available ingredients" %>
+
+<% @ingredients.each do |ingredient| %>
+  <div class="card col-md-8 offset-md-2">
+    <div class="card-body">
+      <div class="row">
+
+        <div class="col-sm-12 text-center">
+          <h2 class="card-title color-link"><%= link_to ingredient.name, ingredient_path(ingredient) %></h2>
+
+          <h4 class="card-title">
+            <small class="text-muted"><%= pluralize(ingredient.recipes.count, "recipe") if ingredient.recipes %></small>      
+          </h4>
+
+          <% if logged_in? && current_user.admin? %>
+            <div class="color-link">
+              <%= link_to "Edit this ingredient", edit_ingredient_path(ingredient) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shared/pagination", obj: @ingredients %>

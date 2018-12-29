@@ -1,0 +1,38 @@
+<div class="card col-md-8 offset-md-2">
+  <h1 class="card-header bg-transparent text-center">
+    <%= @ingredient.name %>
+  </h1>
+
+  <div class="card-body">
+    <% if @ingredient.recipes.count != 0 %>
+      <h4 class="card-title text-center">Recipe containing <%= @ingredient.name %></h4>
+      
+      <% @ingredient_recipes.each do |ing_recipe| %>
+        <hr/>
+        <div class="col-md-10">
+          <h3 class="card-title color-link"><%= link_to ing_recipe.name, recipe_path(ing_recipe) %></h3>
+          <p class="card-text"><%= truncate(ing_recipe.description, length: 150) %></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <em>
+                Created <%= time_ago_in_words(ing_recipe.created_at) %> ago
+              </em>
+            </small>
+          </p>
+        </div>
+      <% end %>
+
+      <% else %>
+        <h4 class="card-title text-center">No recipes yet</h4>
+    <% end %>
+
+  </div>
+</div>
+
+<div>
+  <div class="col-md-12 back-link color-link text-center">
+    <%= link_to "Back to recipes", recipes_path %>
+  </div>
+</div>
+
+<%= render "shared/pagination", obj: @ingredient_recipes %>

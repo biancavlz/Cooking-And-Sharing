@@ -16,6 +16,14 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "See all recipes", recipes_path, class: "dropdown-item" %>
             <%= link_to "Create a recipe", new_recipe_path, class: "dropdown-item" %>
+            
+            <div class="dropdown-divider"></div>
+            <%= link_to "See all ingredients", ingredients_path, class: "dropdown-item" %>
+            
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to "Create an ingredient", new_ingredient_path, class: "dropdown-item" %>
+            <% end %>
+
             <div class="dropdown-divider"></div>
             <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
@@ -27,6 +35,9 @@
       </li>
       <li class="nav-item">
         <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Ingredients", ingredients_path, class: "nav-link" %>
       </li>
     </ul>
 
