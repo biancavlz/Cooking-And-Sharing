@@ -44,3 +44,26 @@
     <%= link_to "Back to recipes", recipes_path %>
   </div>
 </div>
+
+<div class="container">
+  <% if @recipe.comments.any? %>
+    <div class="row">
+      <div class="col-md-12 offset-md-2">
+        <h3>Comments:</h3>
+      </div>
+      
+      <div id="messages" class="col-md-8 offset-md-2">
+        <%= render partial: "comments/comments", object: @comments %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-12 offset-md-2">
+        <h3>No comments yet!</h3>
+      </div>
+    </div>
+  <% end %>
+</div>
+  
+
+    
