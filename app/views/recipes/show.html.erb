@@ -44,3 +44,46 @@
     <%= link_to "Back to recipes", recipes_path %>
   </div>
 </div>
+
+<div class="container">
+  <% if @recipe.comments.any? %>
+    <div class="row">
+      <div class="col-md-12 offset-md-2">
+        <h3>Comments:</h3>
+      </div>
+
+      <% if logged_in? %>
+        <div id="comments" class="col-md-8 offset-md-2">  
+          <%= form_for([@recipe, @comment], :html => { class: "form-horizontal", role: "form" }) do |f| %>
+            <div class="form-group">
+              <%= f.label :description, "Comment" %>
+              <%= f.text_area :description, class: "form-control",
+                placeholder: "Enter your comment", 
+                rows: 5 
+              %>
+            </div>
+
+            <div class="row">
+              <div class="form-group col order-first">
+                <%= f.submit "Submit comment", class: "btn btn-secondary btn-color" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <div id="comments" class="col-md-8 offset-md-2">
+        <%= render partial: "comments/comments", object: @comments %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-12 offset-md-2">
+        <h3>No comments yet!</h3>
+      </div>
+    </div>
+  <% end %>
+</div>
+  
+
+    

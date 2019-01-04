@@ -21,8 +21,8 @@
             <small class="text-muted">
               <em>
                 Created <%= time_ago_in_words(recipe.created_at) %> ago 
-                by <b><%= recipe.user.name.capitalize %></b>
-              </em>
+                by <b><%= recipe.user.name.capitalize %></b> </em> | 
+                <em> <%= pluralize(recipe.comments.count, "Comment") %> </em>
             </small>
           </p>
         </div>

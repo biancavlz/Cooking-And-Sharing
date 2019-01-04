@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   resources :users, except: [:new]
-  resources :recipes
+  
+  resources :recipes do
+    resources :comments, only: [:create]
+  end
+  
   resources :ingredients, except: [:destroy]
 
   get '/login', to: 'sessions#new'

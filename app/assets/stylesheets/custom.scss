@@ -100,7 +100,6 @@
 }
 
 // Checkbox
-
 .input_checkbox {
   margin-right: 15px;
   width: auto !important;
@@ -108,4 +107,21 @@
   .checkbox{
     margin-right: 3px;
   }
+}
+
+//comment
+.comment-description {
+  margin-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.commented-by {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#comments {
+  padding-right: 0px;
+  padding-left: 0px; 
 }
