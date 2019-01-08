@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      cookies.signed[:user_id] = @user.id
+
       flash[:success] = "Welcome #{@user.name} to Cooking and Sharing App!"
       redirect_to user_path(@user)
     else
