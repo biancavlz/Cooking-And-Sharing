@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'pages#home'
   get 'pages/home', to: 'pages#home'
-
   get '/signup', to: 'users#new'
+  get '/chat', to: 'chatrooms#show'
+
   resources :users, except: [:new]
   
   resources :recipes do
