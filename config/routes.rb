@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   
   resources :ingredients, except: [:destroy]
+  resources :messages, only: [:create]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
