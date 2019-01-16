@@ -27,9 +27,6 @@
             <div class="dropdown-divider"></div>
             <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-
-            <div class="dropdown-divider"></div>
-            <%= link_to "Your chat", chat_path, class: "dropdown-item" %>
           </div>
         </li>
       <% end %>
@@ -41,6 +38,9 @@
       </li>
       <li class="nav-item">
         <%= link_to "Ingredients", ingredients_path, class: "nav-link" %>
+      </li>
+      <li>
+        <%= link_to "Chat", chat_path, class: "nav-link" %>
       </li>
     </ul>
 
