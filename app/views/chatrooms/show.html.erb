@@ -8,7 +8,7 @@
   </div>
 
   <div class="message-container col-md-8 offset-md-2">
-    <%= form_for(@message, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+    <%= form_for(@message, remote: true, :html => { class: "form-horizontal", role: "form" }) do |f| %>
       <div class="form-group">
         <%= f.text_area :content, class: "form-control",
           placeholder: "Write a message",
