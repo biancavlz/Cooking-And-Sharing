@@ -5,7 +5,9 @@
 
   <div class="card-body">
     <div class="col-md-12 text-center color-link">
-      <%= link_to "Edit your profile", edit_user_path(@user) %>
+      <% if logged_in? && current_user.admin? %>
+        <%= link_to "Edit your profile", edit_user_path(@user) %>
+      <% end %>
     </div>
     <div class="col-md-12 text-center">
       <%= gravatar_for(@user, size: 150) %>
