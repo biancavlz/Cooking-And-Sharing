@@ -1,0 +1,17 @@
+
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <%= link_to gravatar_for(message.user, size: 50)%>
+    </div>
+    <div class="col-md-9">
+      <p class="message-content"><%= message.content %></p>
+      <p>
+        <small class="text-muted commented-by">
+          <em>Created <%= time_ago_in_words(message.created_at) %> ago
+            by <strong><%=message.user.name.capitalize%></strong>
+          </em>
+        </small>
+      </p>
+    </div>
+  </div>
+  <hr />

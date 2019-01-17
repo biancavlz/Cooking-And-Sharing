@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'pages#home'
   get 'pages/home', to: 'pages#home'
-
   get '/signup', to: 'users#new'
+  get '/chat', to: 'chatrooms#show'
+
   resources :users, except: [:new]
   
   resources :recipes do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   end
   
   resources :ingredients, except: [:destroy]
+  resources :messages, only: [:create]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

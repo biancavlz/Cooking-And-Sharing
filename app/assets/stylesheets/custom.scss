@@ -130,3 +130,29 @@
   padding-right: 0px;
   padding-left: 0px;
 }
+
+//chat
+.chat-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.messages {
+  border: 3px solid #eaeaea;
+  height: 16em;
+  position: relative;
+  overflow: auto;
+}
+
+.message-container {
+  margin-top: 25px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.message-content {
+  margin-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
