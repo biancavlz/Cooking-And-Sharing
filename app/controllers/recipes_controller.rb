@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
   before_action :require_user, except: [:index, :show, :like]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_user_like, only: [:like]
   
   def index
     @recipes = Recipe.page(params[:page]).per(5)
@@ -72,6 +73,13 @@ class RecipesController < ApplicationController
     if current_user != @recipe.user && !current_user.admin?
       flash[:danger] = "You can only edit or delete your own recipes"
       redirect_to recipes_path
+    end
+  end
+
+  def require_user_like
+    if !logged_in?
+      flash[:danger] = "You must be logged in to perform that action"
+      redirect_back(fallback_location: recipe_path(@recipe))
     end
   end
 end
