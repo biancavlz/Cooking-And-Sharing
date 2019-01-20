@@ -43,10 +43,10 @@
   <div class="row col-md-8 col-md-offset-2">
     <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
       <i class="fa fa-thumbs-up"></i>
-    <% end %>
+    <% end %><%= @recipe.thumbs_up_total %>
     <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
       <i class="fa fa-thumbs-down"></i>
-    <% end %>
+    <% end %><%= @recipe.thumbs_down_total %>
   </div>
 </div>
 
