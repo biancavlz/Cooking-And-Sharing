@@ -17,25 +17,25 @@
 
 // navbar
 .navbar {
-  background-color: #289486;
+  background-color: #729d39;
 }
 
 //Jumbotrom
 .jumbotron {
   margin-top: 32px;
   text-align: center;
-  background-color: #a8d4c8;
+  background: image_url('chillies.png') no-repeat;
 }
 
 //links
 .color-link a {
-  color: #289486
+  color: #729d39
 }
 
 //Button
 .btn-color {
-  background-color: #289486;
-  border-color: #289486;
+  background-color: #729d39;
+  border-color: #729d39;
 }
 
 //pagination
@@ -44,8 +44,8 @@
 }
 
 .page-item.active .page-link {
-  background-color: #289486;
-  border-color: #289486;
+  background-color: #729d39;
+  border-color: #729d39;
 }
 
 .page-link:hover {
@@ -66,8 +66,8 @@
 .recipe-actions {
   margin-top: 20px;
   .btn {
-    color: #289486;
-    border-color: #289486;
+    color: #729d39;
+    border-color: #729d39;
   }
 }
 
@@ -103,7 +103,7 @@
 
 // badge
 .badge-light {
-  background-color: #289486;
+  background-color: #729d39;
   margin-right: 5px;
   a {
     color: white;
