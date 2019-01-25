@@ -3,11 +3,10 @@
 // logo
 #logo {
   float: left;
-  font-size: 1em;
+  font-family: 'Fresca', sans-serif;
+  font-size: 1.5rem;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: bold;
 }
 
 #logo:hover {
@@ -18,6 +17,7 @@
 // navbar
 .navbar {
   background-color: #729d39;
+  font-size: 18px;
 }
 
 //Jumbotrom
@@ -25,6 +25,16 @@
   margin-top: 32px;
   text-align: center;
   background: image_url('chillies.png') no-repeat;
+
+  h1, h2 {
+    color: white;
+    font-family: 'Fresca', sans-serif;
+    text-shadow: 1px 1px 17px #545b62;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 //links
@@ -166,4 +176,3 @@
   padding-right: 15px;
   padding-left: 15px;
 }
-
