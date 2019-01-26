@@ -7,4 +7,8 @@ module ApplicationHelper
     
     image_tag(gravatar_url, alt: user.name, class: "rounded-circle")
   end
+
+  def copyright_generator
+    CopyrightRendererTool::Renderer.copyright "Cooking and Sharing", " "
+  end
 end
