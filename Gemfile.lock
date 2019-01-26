@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/biancavlz/copyright_renderer_tool
+  revision: 115778e9fbd7a05d0f75bd112bc669c599ee9312
+  specs:
+    copyright_renderer_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -233,6 +239,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  copyright_renderer_tool!
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.3)
