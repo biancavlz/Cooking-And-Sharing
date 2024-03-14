@@ -1,1 +1,1 @@
-# Cooking and Sharing App
+# Cooking and Sharing
